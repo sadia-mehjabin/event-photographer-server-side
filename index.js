@@ -19,6 +19,11 @@ async function run(){
         const serviceCollections = client.db('eventPhoto').collection('photoServices');
         const reviewCollections = client.db('eventPhoto').collection('reviews');
 
+        app.post('/jwt', (req, res) => {
+            const user = req.body;
+            console.log(user)
+        })
+
         app.get('/', async (req, res) => {
             const query = {};
             const cursor = serviceCollections.find(query).limit(3);
